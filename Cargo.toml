@@ -1,0 +1,26 @@
+[package]
+name = "rsbackup"
+version = "0.1.0"
+edition = "2021"
+categories = ["filesystem", "backup"]
+readme = "README-en.md"
+authors = ["initcool <initcoool@gmail.com>"]
+license = "GPL-3.0-or-later"
+documentation = "https://docs.rs/rsbackup"
+homepage = "https://github.com/limitcool/rsbackup"
+repository = "https://github.com/limitcool/rsbackup"
+keywords = ["filesystem", "rust", "backup","file","storage"]
+description = "rsbackup is a cross-platform file backup tool written in Rust, designed to simplify the backup process. It supports Windows, Linux, and macOS, and is open source under the GPL license."
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+serde = { version = "1.0.203", features = ["derive"] }
+serde_yaml = "0.9.34"
+sha2 = "0.10.8"
+walkdir = "2.5.0"
+tracing = "0.1.40"
+tracing-subscriber = "0.3.18"
+tracing-appender = "0.2.3"
+regex = "1.10.4"
+directories = "5.0.1"
