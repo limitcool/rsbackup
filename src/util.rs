@@ -2,10 +2,12 @@ use directories::ProjectDirs;
 
 use regex::Regex;
 use sha2::{Digest, Sha256};
+use std::env::consts::OS;
 use std::fs;
 use std::io::Read;
 use std::path::Path;
 use std::path::PathBuf;
+use std::process::Command;
 use tracing::info;
 
 pub fn calculate_file_hash(file_path: &str) -> Result<String, String> {
@@ -37,8 +39,7 @@ pub fn should_exclude(path: &Path, exclude_patterns: &[Regex]) -> bool {
 
 // 获取项目目录的函数
 pub fn get_project_dirs() -> ProjectDirs {
-    ProjectDirs::from("com", "initcool", "rsbackup")
-        .expect("Failed to get project directories")
+    ProjectDirs::from("com", "initcool", "rsbackup").expect("Failed to get project directories")
 }
 #[allow(dead_code)]
 pub fn config_file() -> PathBuf {
@@ -56,4 +57,21 @@ pub fn log_file() -> PathBuf {
     fs::create_dir_all(&log_path).expect("Failed to create log directory");
     log_path.push("rsbackup.log"); // 添加日志文件名
     log_path
+}
+// 运行命令
+pub fn run_command(command: &str) {
+    let shell = match OS {
+        "windows" => "powershell",
+        _ => "bash",
+    };
+
+    let mut cmd = Command::new(shell);
+    if OS == "windows" {
+        cmd.arg("-NoProfile");
+        cmd.arg("-Command");
+    } else {
+        cmd.arg("-c");
+    }
+    cmd.arg(command);
+    cmd.output().expect("Failed to execute command");
 }

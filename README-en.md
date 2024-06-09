@@ -42,6 +42,8 @@ mv rsbackup-linux-x86_64 /usr/local/bin/rsbackup
    - BackupDirectory: ''
      BackupDestination: ''
      Exclude: []
+     PreBackupCommand: ""
+     AfterBackupCommand: ""
    ```
 
    You can add more backup items as needed.

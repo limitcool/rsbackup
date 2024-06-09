@@ -40,6 +40,8 @@ mv rsbackup-linux-x86_64 /usr/local/bin/rsbackup
    - BackupDirectory: ''
      BackupDestination: ''
      Exclude: []
+     PreBackupCommand: ""
+     AfterBackupCommand: ""
    ```
 
    您可以根据需要添加更多的备份项。

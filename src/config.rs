@@ -12,6 +12,9 @@ pub struct BackupItem {
     pub backup_directory: String,
     pub backup_destination: String,
     pub exclude: Option<Vec<String>>,
+    // 添加一个字段,来获取用户在备份前执行的命令
+    pub pre_backup_command: Option<String>,
+    pub after_backup_command: Option<String>,
 }
 
 #[derive(Debug, Serialize, Deserialize)]
@@ -36,6 +39,8 @@ impl BackupConfig {
                 backup_directory: "".to_string(),
                 backup_destination: "".to_string(),
                 exclude: Some(vec![]),
+                pre_backup_command: None,
+                after_backup_command: None,
             }],
             check_frequency: 86400,
         };
@@ -58,12 +63,7 @@ impl BackupConfig {
         Ok(config)
     }
     #[allow(dead_code)]
-    fn create_file(
-        &self,
-        project_path: &Path,
-        file_name: &str,
-        content: &[u8],
-    ) -> io::Result<()> {
+    fn create_file(&self, project_path: &Path, file_name: &str, content: &[u8]) -> io::Result<()> {
         let file_path = project_path.join(file_name);
         let mut file = File::create(&file_path)?;
         file.write_all(content)?;
