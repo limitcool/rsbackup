@@ -3,7 +3,7 @@
 
 [![crates.io](https://img.shields.io/crates/v/rsbackup.svg)](https://crates.io/crates/rsbackup)
 [![Docs](https://docs.rs/rsbackup/badge.svg)](https://docs.rs/rsbackup)
-[![MSRV](https://img.shields.io/badge/rustc-1.78.0+-ab6000.svg)]
+[MSRV](https://img.shields.io/badge/rustc-1.78.0+-ab6000.svg)
 
 rsbackup 是一个用 Rust 编写的跨平台文件备份工具，旨在简化备份流程。它支持 Windows、Linux 和 macOS，并且使用 GPL 协议进行开源。
 
