@@ -2,6 +2,10 @@ English| [简体中文](README.md)
 
 # rsbackup
 
+[![crates.io](https://img.shields.io/crates/v/rsbackup.svg)](https://crates.io/crates/rsbackup)
+[![Docs](https://docs.rs/rsbackup/badge.svg)](https://docs.rs/rsbackup)
+[![MSRV](https://img.shields.io/badge/rustc-1.78.0+-ab6000.svg)]
+
 rsbackup is a cross-platform file backup tool written in Rust, designed to simplify the backup process. It supports Windows, Linux, and macOS, and is open source under the GPL license.
 
 ## Installation
